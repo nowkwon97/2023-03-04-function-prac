@@ -7,6 +7,47 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <div id="root"></div>
+
+  <script>
+    const root = document.getElementById('root');
+    const makeUl = document.createElement('ul');
+    root.appendChild(makeUl);
+    
+    // makeUl.style.width = "100px";
+    // makeUl.style.height = "100px";
+    // makeUl.style.border = "1px solid black";
+
+    const styleObject = ["width", "height", "border"];
+    const styleValue = ["100px", "100px", "1px solid black"];
+
+    // makeUl.style[styleObject[0]] = styleValue[0];
+    // makeUl.style[styleObject[1]] = styleValue[1];
+    // makeUl.style[styleObject[2]] = styleValue[2];
+
+    // for (let i = 0; i < styleObject.length; i++) {
+    //   makeUl.style[styleObject[i]] = styleValue[i];
+    // }
+
+    let domStyle = {
+      firstArray : ["width", "height" ,"border"],
+      secondArray : ["100px", "100px", "1px solid black"],
+      element : root.children[0]
+    }
+
+    function twoArrayDomStyling (firstArray, secondArray, element) {
+      for(let i = 0; i < firstArray.length; i++) {
+        element.style[firstArray[i]] = secondArray[i];
+      };
+    };
+    // twoArrayDomStyling(styleObject, styleValue, makeUl);
+
+    function oneObjectDomStyling (object) {
+      for(let i = 0; i < object.firstArray.length; i++) {
+        object.element.style[object.firstArray[i]] = object.secondArray[i];
+      };
+    };
+    oneObjectDomStyling(domStyle);
+  </script>
 </body>
 </html>
